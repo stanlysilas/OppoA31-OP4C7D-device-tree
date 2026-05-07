@@ -17,6 +17,7 @@ $(call inherit-product, device/oppo/OP4C7D/device.mk)
 PRODUCT_DEVICE := OP4C7D
 PRODUCT_NAME := lineage_OP4C7D
 PRODUCT_MANUFACTURER := oppo
+PRODUCT_BRAND := OPPO
 
 PRODUCT_GMS_CLIENTID_BASE := android-oppo
 
