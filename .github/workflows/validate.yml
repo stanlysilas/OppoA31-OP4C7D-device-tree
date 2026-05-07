@@ -15,51 +15,50 @@ jobs:
 
       - name: Validate Required Directories
         run: |
-          test -d device/oppo/OP4C7D || exit 1
-          test -d device/oppo/OP4C7D/prebuilts || exit 1
-          test -d device/oppo/OP4C7D/rootdir || exit 1
+          test -d prebuilts || exit 1
+          test -d rootdir || exit 1
 
       - name: Validate Required Files
         run: |
-          test -f device/oppo/OP4C7D/BoardConfig.mk || exit 1
-          test -f device/oppo/OP4C7D/device.mk || exit 1
-          test -f device/oppo/OP4C7D/lineage_OP4C7D.mk || exit 1
-          test -f device/oppo/OP4C7D/AndroidProducts.mk || exit 1
-          test -f device/oppo/OP4C7D/rootdir/etc/fstab.mt6765 || exit 1
-          test -f device/oppo/OP4C7D/prebuilts/Image || exit 1
-          test -f device/oppo/OP4C7D/prebuilts/dtbo.img || exit 1
+          test -f BoardConfig.mk || exit 1
+          test -f device.mk || exit 1
+          test -f lineage_OP4C7D.mk || exit 1
+          test -f AndroidProducts.mk || exit 1
+          test -f rootdir/etc/fstab.mt6765 || exit 1
+          test -f prebuilts/Image || exit 1
+          test -f prebuilts/dtbo.img || exit 1
 
       - name: Validate BoardConfig Variables
         run: |
-          grep -q "TARGET_BOARD_PLATFORM := mt6765" device/oppo/OP4C7D/BoardConfig.mk || exit 1
-          grep -q "TARGET_FORCE_PREBUILT_KERNEL := true" device/oppo/OP4C7D/BoardConfig.mk || exit 1
-          grep -q "BOARD_KERNEL_IMAGE_NAME := Image" device/oppo/OP4C7D/BoardConfig.mk || exit 1
-          grep -q "TARGET_PREBUILT_KERNEL := \$(DEVICE_PATH)/prebuilts/Image" device/oppo/OP4C7D/BoardConfig.mk || exit 1
+          grep -q "TARGET_BOARD_PLATFORM := mt6765" BoardConfig.mk || exit 1
+          grep -q "TARGET_FORCE_PREBUILT_KERNEL := true" BoardConfig.mk || exit 1
+          grep -q "BOARD_KERNEL_IMAGE_NAME := Image" BoardConfig.mk || exit 1
+          grep -q "TARGET_PREBUILT_KERNEL := \$(DEVICE_PATH)/prebuilts/Image" BoardConfig.mk || exit 1
 
       - name: Validate Product Definitions
         run: |
-          grep -q "PRODUCT_NAME := lineage_OP4C7D" device/oppo/OP4C7D/lineage_OP4C7D.mk || exit 1
-          grep -q "PRODUCT_DEVICE := OP4C7D" device/oppo/OP4C7D/lineage_OP4C7D.mk || exit 1
-          grep -q "PRODUCT_MANUFACTURER := oppo" device/oppo/OP4C7D/lineage_OP4C7D.mk || exit 1
+          grep -q "PRODUCT_NAME := lineage_OP4C7D" lineage_OP4C7D.mk || exit 1
+          grep -q "PRODUCT_DEVICE := OP4C7D" lineage_OP4C7D.mk || exit 1
+          grep -q "PRODUCT_MANUFACTURER := oppo" lineage_OP4C7D.mk || exit 1
 
       - name: Validate Lunch Targets
         run: |
-          grep -q "lineage_OP4C7D-user" device/oppo/OP4C7D/AndroidProducts.mk || exit 1
-          grep -q "lineage_OP4C7D-userdebug" device/oppo/OP4C7D/AndroidProducts.mk || exit 1
-          grep -q "lineage_OP4C7D-eng" device/oppo/OP4C7D/AndroidProducts.mk || exit 1
+          grep -q "lineage_OP4C7D-user" AndroidProducts.mk || exit 1
+          grep -q "lineage_OP4C7D-userdebug" AndroidProducts.mk || exit 1
+          grep -q "lineage_OP4C7D-eng" AndroidProducts.mk || exit 1
 
       - name: Validate Vendor Inheritance
         run: |
-          grep -q "vendor/oppo/OP4C7D/OP4C7D-vendor.mk" device/oppo/OP4C7D/device.mk || exit 1
+          grep -q "vendor/oppo/OP4C7D/OP4C7D-vendor.mk" device.mk || exit 1
 
       - name: Validate Recovery Fstab
         run: |
-          grep -q "/data" device/oppo/OP4C7D/rootdir/etc/fstab.mt6765 || exit 1
-          grep -q "fileencryption=aes-256-xts" device/oppo/OP4C7D/rootdir/etc/fstab.mt6765 || exit 1
+          grep -q "/data" rootdir/etc/fstab.mt6765 || exit 1
+          grep -q "fileencryption=aes-256-xts" rootdir/etc/fstab.mt6765 || exit 1
 
       - name: Validate Manifest Exists
         run: |
-          test -f device/oppo/OP4C7D/manifest.xml || exit 1
+          test -f manifest.xml || exit 1
 
       - name: Print Success
         run: |
