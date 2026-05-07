@@ -25,15 +25,15 @@ jobs:
           test -f lineage_OP4C7D.mk || exit 1
           test -f AndroidProducts.mk || exit 1
           test -f rootdir/etc/fstab.mt6765 || exit 1
-          test -f prebuilts/Image || exit 1
+          test -f prebuilts/kernel || exit 1
           test -f prebuilts/dtbo.img || exit 1
 
       - name: Validate BoardConfig Variables
         run: |
           grep -q "TARGET_BOARD_PLATFORM := mt6765" BoardConfig.mk || exit 1
           grep -q "TARGET_FORCE_PREBUILT_KERNEL := true" BoardConfig.mk || exit 1
-          grep -q "BOARD_KERNEL_IMAGE_NAME := Image" BoardConfig.mk || exit 1
-          grep -q "TARGET_PREBUILT_KERNEL := \$(DEVICE_PATH)/prebuilts/Image" BoardConfig.mk || exit 1
+          grep -q "BOARD_KERNEL_IMAGE_NAME := kernel" BoardConfig.mk || exit 1
+          grep -q "TARGET_PREBUILT_KERNEL := \$(DEVICE_PATH)/prebuilts/kernel" BoardConfig.mk || exit 1
 
       - name: Validate Product Definitions
         run: |
