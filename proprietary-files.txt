@@ -829,7 +829,7 @@ lib64/vendor.qti.hardware.soter@1.0.so
 vendor/lib64/vendor.qti.hardware.soter@1.0.so
 
 # Soter (Tencent)
-app/SoterService/SoterService.apk
+# app/SoterService/SoterService.apk
 
 # Soundtrigger
 lib/vndk-28/android.hardware.soundtrigger@2.0-core.so
@@ -1984,9 +1984,3 @@ vendor/res/sound/CA2CA.ogg
 vendor/res/sound/CADetected.ogg
 vendor/res/sound/ringtone.wav
 vendor/res/sound/testpattern1.wav
-vendor/nvcfg
-vendor/nvdata
-vendor/opporeserve2
-vendor/persist
-vendor/protect_f
-vendor/protect_s
